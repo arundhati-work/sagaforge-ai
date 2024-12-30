@@ -1,0 +1,26 @@
+sequenceDiagram
+   participant User
+   participant Frontend
+   participant Backend
+   participant AI
+   participant DB
+
+   Note over User,DB: Initial Story Start
+   User->>Frontend: Select genre
+   Frontend->>Backend: POST /api/story/start {genre}
+   Backend->>AI: Generate initial story prompt
+   AI->>Backend: Return story + choices
+   Backend->>DB: Save new story
+   Backend->>Frontend: Send story data
+   Frontend->>User: Display story & choices
+
+   Note over User,DB: Making Choice
+   User->>Frontend: Select choice
+   Frontend->>Backend: POST /api/story/choice {storyId, choiceId}
+   Backend->>DB: Get current story state
+   DB->>Backend: Return story data
+   Backend->>AI: Generate next part (with context)
+   AI->>Backend: Return new story part + choices
+   Backend->>DB: Save progress
+   Backend->>Frontend: Send new story data
+   Frontend->>User: Update display

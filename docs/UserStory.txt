@@ -1,0 +1,11 @@
+As a reader, I want to:
+- choose a story genre to find stories that I enjoy
+- make in-story choices to shape the narrative
+- save my progress to continue later
+- see my story history to revisit past choices
+- share completed stories with friends
+
+As a new user, I want to:
+- Create an account to save my progress
+- Browse available genres before starting
+- get a tutorial on how choices work
